@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clipping Meio Ambiente no WhatsApp</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #e0ffe0; /* Verde claro */
+            color: #333;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: #ffffff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            color: #2e8b57; /* Verde mar */
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        textarea {
+            width: 100%;
+            padding: 15px;
+            margin-bottom: 20px;
+            border: 1px solid #a2d2a2; /* Verde suave */
+            border-radius: 5px;
+            font-size: 16px;
+            box-sizing: border-box; /* Garante que padding e border sejam incluídos na largura */
+            resize: vertical;
+            min-height: 200px;
+        }
+        button {
+            background-color: #3cb371; /* Verde médio */
+            color: white;
+            padding: 12px 25px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 18px;
+            display: block;
+            margin: 0 auto 30px auto;
+            transition: background-color 0.3s ease;
+        }
+        button:hover {
+            background-color: #2e8b57; /* Verde mar */
+        }
+        .output-label {
+            font-weight: bold;
+            margin-bottom: 10px;
+            display: block;
+            color: #2e8b57;
+        }
+        .loading {
+            text-align: center;
+            margin-top: 20px;
+            font-style: italic;
+            color: #666;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🌿 Clipping Meio Ambiente no WhatsApp 🌿</h1>
+
+        <p>Cole o conteúdo do seu clipping (diretamente do Notepad) na caixa abaixo:</p>
+        <textarea id="inputClipping" placeholder="Cole seu clipping aqui..."></textarea>
+
+        <button onclick="formatClipping()">Formatar para WhatsApp</button>
+
+        <div class="loading" id="loadingMessage">Encurtando links, aguarde um momento...</div>
+
+        <span class="output-label">Conteúdo formatado para WhatsApp (pronto para copiar):</span>
+        <textarea id="outputClipping" readonly></textarea>
+    </div>
+
+    <script>
+        async function shortenUrl(longUrl) {
+            try {
+                // Usando a API gratuita do TinyURL.
+                // Recomenda-se um proxy CORS ou backend para uso em produção,
+                // mas para um arquivo local, pode funcionar ou retornar o original em caso de erro.
+                const apiUrl = `https://tinyurl.com/api-create.php?url=${encodeURIComponent(longUrl)}`;
+                const response = await fetch(apiUrl);
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                const shortUrl = await response.text();
+                return shortUrl;
+            } catch (error) {
+                console.error("Erro ao encurtar URL:", error);
+                return longUrl; // Retorna a URL original em caso de erro
+            }
+        }
+
+        async function formatClipping() {
+            const input = document.getElementById('inputClipping').value;
+            const outputArea = document.getElementById('outputClipping');
+            const loadingMessage = document.getElementById('loadingMessage');
+            outputArea.value = ''; // Limpa a área de saída
+            loadingMessage.style.display = 'block'; // Mostra a mensagem de carregamento
+
+            let lines = input.split('\n').map(line => line.trim()).filter(line => line.length > 0); // Filtra linhas vazias iniciais
+            let formattedContent = [];
+            let currentSection = '';
+            let isInsideYouTubeSection = false; // Flag para controlar a seção YouTube
+
+            // Processar o cabeçalho
+            if (lines[0] && lines[0].toLowerCase().includes('clipping meio ambiente:')) {
+                formattedContent.push(`*${lines[0]}*`);
+                lines.shift(); // Remove a linha do cabeçalho
+            } else {
+                 const today = new Date();
+                 const day = String(today.getDate()).padStart(2, '0');
+                 const month = String(today.getMonth() + 1).padStart(2, '0');
+                 const year = today.getFullYear();
+                 formattedContent.push(`*Clipping Meio Ambiente: ${day}.${month}.${year}*`);
+            }
+            formattedContent.push(''); // Linha em branco após o cabeçalho
+
+            for (let i = 0; i < lines.length; i++) {
+                let line = lines[i];
+
+                // Títulos de Seção (Maiúsculas, Negrito)
+                const sectionTitles = ['CAPAS', 'MATÉRIAS QUE CITAM O SISEMA', 'OUTRAS MATÉRIAS RELEVANTES', 'JORNAIS', 'PORTAIS', 'REVISTA', 'YOUTUBE'];
+                if (sectionTitles.includes(line.toUpperCase())) {
+                    formattedContent.push(`\n*${line.toUpperCase()}*`); // Apenas negrito, sem itálico
+                    formattedContent.push(''); // Linha em branco após o título da seção
+                    currentSection = line.toUpperCase();
+                    isInsideYouTubeSection = (currentSection === 'YOUTUBE'); // Define a flag para YouTube
+                    continue;
+                }
+
+                // Nomes de Jornais/Portais/Revistas/YouTube (Negrito)
+                if (line.startsWith('Jornal ') || line.startsWith('Portal ') || line.startsWith('Revista ') || (isInsideYouTubeSection && !line.match(/(https?:\/\/[^\s]+)/g))) {
+                    formattedContent.push(`*${line}*`);
+                    // Se estiver dentro da seção YouTube e formatou o nome do canal,
+                    // desativa a flag para que a próxima linha (título da matéria/vídeo) não seja negrito.
+                    if (isInsideYouTubeSection) {
+                         isInsideYouTubeSection = false;
+                    }
+                    continue;
+                }
+
+                // Links
+                const urlRegex = /(https?:\/\/[^\s]+)/g;
+                let match;
+                let linksToShorten = [];
+                while ((match = urlRegex.exec(line)) !== null) {
+                    linksToShorten.push(match[0]);
+                }
+
+                if (linksToShorten.length > 0) {
+                    let processedLine = line;
+                    for (const link of linksToShorten) {
+                        const shortLink = await shortenUrl(link);
+                        processedLine = processedLine.replace(link, shortLink);
+                    }
+                    formattedContent.push(processedLine);
+                    // Adiciona uma linha em branco após cada link, se a próxima linha não for outro link imediatamente.
+                    if (i + 1 < lines.length && !urlRegex.test(lines[i+1])) {
+                        formattedContent.push('');
+                    }
+                    continue; // Pula para a próxima linha
+                }
+
+                // Títulos das matérias (Itálico) - se não for um link, um nome de jornal/portal/YouTube ou título de seção
+                formattedContent.push(`_${line}_`);
+            }
+
+            // Rodapé (garantir que seja apenas uma vez e formatado corretamente)
+            formattedContent.push(''); // Linha em branco antes do rodapé
+            formattedContent.push('*_Clipping direcionado exclusivamente para servidores, sendo proibida a divulgação para outras pessoas._*');
+
+            outputArea.value = formattedContent.join('\n');
+            loadingMessage.style.display = 'none'; // Esconde a mensagem de carregamento
+        }
+    </script>
+</body>
+</html>
