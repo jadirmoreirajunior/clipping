@@ -70,7 +70,49 @@
         <h1>🌿 Clipping Meio Ambiente no WhatsApp 🌿</h1>
 
         <p>Cole o conteúdo do seu clipping (diretamente do Notepad) na caixa abaixo:</p>
-        <textarea id="inputClipping" placeholder="Cole seu clipping aqui..."></textarea>
+        <textarea id="inputClipping">Clipping Meio Ambiente:
+
+CAPAS
+
+Jornal Estado de Minas
+
+Jornal O Tempo
+
+Jornal Hoje Em Dia
+
+Jornal Diário do Comércio
+
+Jornal Folha de S.Paulo 
+
+Jornal O Estado de S.Paulo
+
+Jornal o Globo
+
+Jornal Correio Braziliense
+
+
+MATÉRIAS QUE CITAM O SISEMA
+
+JORNAIS
+
+
+PORTAIS
+
+
+YOUTUBE
+
+
+OUTRAS MATÉRIAS RELEVANTES
+
+
+JORNAIS
+
+
+PORTAIS
+
+YOUTUBE
+
+Clipping direcionado exclusivamente para servidores, sendo proibida a divulgação para outras pessoas</textarea>
 
         <button onclick="formatClipping()">Formatar para WhatsApp</button>
 
@@ -111,21 +153,47 @@
             let currentSection = '';
             let isInsideYouTubeSection = false; // Flag para controlar a seção YouTube
 
-            // Processar o cabeçalho
-            if (lines[0] && lines[0].toLowerCase().includes('clipping meio ambiente:')) {
-                formattedContent.push(`*${lines[0]}*`);
-                lines.shift(); // Remove a linha do cabeçalho
-            } else {
-                 const today = new Date();
-                 const day = String(today.getDate()).padStart(2, '0');
-                 const month = String(today.getMonth() + 1).padStart(2, '0');
-                 const year = today.getFullYear();
-                 formattedContent.push(`*Clipping Meio Ambiente: ${day}.${month}.${year}*`);
-            }
+            // Processar o cabeçalho e adicionar a data
+            const today = new Date();
+            const day = String(today.getDate()).padStart(2, '0');
+            const month = String(today.getMonth() + 1).padStart(2, '0');
+            const year = today.getFullYear();
+            formattedContent.push(`*Clipping Meio Ambiente: ${day}.${month}.${year}*`);
             formattedContent.push(''); // Linha em branco após o cabeçalho
 
-            for (let i = 0; i < lines.length; i++) {
-                let line = lines[i];
+            // Pular o cabeçalho inicial que já está pré-preenchido
+            if (lines[0] && lines[0].toLowerCase().includes('clipping meio ambiente:')) {
+                lines.shift();
+            }
+
+            // Remover o rodapé do input para adicioná-lo no final, formatado
+            const footerIndex = lines.findIndex(line => line.toLowerCase().includes('clipping direcionado exclusivamente para servidores'));
+            let inputContentWithoutFooter = lines;
+            if (footerIndex !== -1) {
+                inputContentWithoutFooter = lines.slice(0, footerIndex);
+            }
+            
+            for (let i = 0; i < inputContentWithoutFooter.length; i++) {
+                let line = inputContentWithoutFooter[i];
+
+                // Ignora linhas que são exatamente os títulos pré-preenchidos
+                const prefilledTitles = [
+                    'Clipping Meio Ambiente:', 'CAPAS', 'MATÉRIAS QUE CITAM O SISEMA',
+                    'JORNAIS', 'PORTAIS', 'YOUTUBE', 'OUTRAS MATÉRIAS RELEVANTES',
+                    'Clipping direcionado exclusivamente para servidores, sendo proibida a divulgação para outras pessoas'
+                ];
+                if (prefilledTitles.includes(line)) {
+                    // Mantém a formatação original desses títulos, se eles vierem do input
+                    if (line.toUpperCase() === line) { // Se for um título de área (CAPAS, MATÉRIAS...)
+                        formattedContent.push(`*${line.toUpperCase()}*`);
+                        formattedContent.push(''); // Linha em branco após o título da seção
+                    } else if (line.startsWith('Clipping Meio Ambiente:')) {
+                         // Já tratamos o cabeçalho com a data, então ignora este
+                    } else if (line.startsWith('Clipping direcionado exclusivamente para servidores')) {
+                        // O rodapé será adicionado no final
+                    }
+                    continue;
+                }
 
                 // Títulos de Seção (Maiúsculas, Negrito)
                 const sectionTitles = ['CAPAS', 'MATÉRIAS QUE CITAM O SISEMA', 'OUTRAS MATÉRIAS RELEVANTES', 'JORNAIS', 'PORTAIS', 'REVISTA', 'YOUTUBE'];
@@ -143,7 +211,7 @@
                     // Se estiver dentro da seção YouTube e formatou o nome do canal,
                     // desativa a flag para que a próxima linha (título da matéria/vídeo) não seja negrito.
                     if (isInsideYouTubeSection) {
-                         isInsideYouTubeSection = false;
+                        isInsideYouTubeSection = false;
                     }
                     continue;
                 }
@@ -164,14 +232,16 @@
                     }
                     formattedContent.push(processedLine);
                     // Adiciona uma linha em branco após cada link, se a próxima linha não for outro link imediatamente.
-                    if (i + 1 < lines.length && !urlRegex.test(lines[i+1])) {
+                    if (i + 1 < inputContentWithoutFooter.length && !urlRegex.test(inputContentWithoutFooter[i+1])) {
                         formattedContent.push('');
                     }
                     continue; // Pula para a próxima linha
                 }
 
                 // Títulos das matérias (Itálico) - se não for um link, um nome de jornal/portal/YouTube ou título de seção
-                formattedContent.push(`_${line}_`);
+                if (line.length > 0) { // Garante que não adicione itálico em linhas vazias que não sejam de espaçamento intencional
+                    formattedContent.push(`_${line}_`);
+                }
             }
 
             // Rodapé (garantir que seja apenas uma vez e formatado corretamente)
