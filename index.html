@@ -24,6 +24,28 @@
             text-align: center;
             margin-bottom: 30px;
         }
+        .controls {
+            background-color: #f0fff0;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 25px;
+            border: 1px dashed #a2d2a2;
+        }
+        .control-group {
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        .control-group label {
+            font-weight: bold;
+            color: #2e8b57;
+            margin-right: 10px;
+            min-width: 150px;
+        }
+        .control-group select, .control-group input[type="checkbox"] {
+            margin-right: 15px;
+        }
         textarea {
             width: 100%;
             padding: 15px;
@@ -69,48 +91,123 @@
     <div class="container">
         <h1>🌿 Clipping Meio Ambiente no WhatsApp 🌿</h1>
 
+        <div class="controls">
+            <h2>Opções de Formatação</h2>
+            <div class="control-group">
+                <label for="headerStyle">Cabeçalho (Clipping Meio Ambiente:)</label>
+                <select id="headerStyle">
+                    <option value="bold">Negrito (*texto*)</option>
+                    <option value="italic">Itálico (_texto_)</option>
+                    <option value="strikethrough">Riscado (~texto~)</option>
+                    <option value="monospace">Monoespaçado (```texto```)</option>
+                    <option value="gothic">Gótico (𝔉𝔬𝔫𝔱𝔢 𝔲𝔫𝔦𝔠𝔬𝔡𝔢)</option>
+                    <option value="cursive">Cursiva (𝓕𝓸𝓷𝓽𝓮 𝓾𝓷𝓲𝓬𝓸𝓭𝓮)</option>
+                    <option value="doubledunderline">Duplo Sublinhado (𝒰𝓃𝒹𝑒𝓇𝓁𝒾𝓃𝑒)</option>
+                    <option value="circled">Circulados (Ⓒⓘⓡⓒⓛⓔⓓ)</option>
+                    <option value="boxed">Quadrados Negritos (🅑🅞🅧🅔🅓)</option>
+                    <option value="bolditalic">Itálico Negrito (𝓑𝓸𝓵𝓭 𝓘𝓽𝓪𝓵𝓲𝓬)</option>
+                    <option value="boldunderline">Negrito Sublinhado (B̲o̲l̲d̲ U̲n̲d̲e̲r̲l̲i̲n̲e̲)</option>
+                    <option value="smallcaps">Pequenas Maiúsculas (Sᴍᴀʟʟ Cᴀᴘs)</option>
+                    <option value="mathbold">Matemático Negrito (𝐀 𝐁 𝐂)</option>
+                </select>
+            </div>
+            <div class="control-group">
+                <label for="areaTitleStyle">Títulos de Área (CAPAS, MATÉRIAS...)</label>
+                <select id="areaTitleStyle">
+                    <option value="bold">Negrito (*texto*)</option>
+                    <option value="italic">Itálico (_texto_)</option>
+                    <option value="strikethrough">Riscado (~texto~)</option>
+                    <option value="monospace">Monoespaçado (```texto```)</option>
+                    <option value="gothic">Gótico (𝔉𝔬𝔫𝔱𝔢 𝔲𝔫𝔦𝔠𝔬𝔡𝔢)</option>
+                    <option value="cursive">Cursiva (𝓕𝓸𝓷𝓽𝓮 𝓾𝓃𝒾𝒸𝓸𝒹𝑒)</option>
+                    <option value="doubledunderline">Duplo Sublinhado (𝒰𝓃𝒹𝑒𝓇𝓁𝒾𝓃𝑒)</option>
+                    <option value="circled">Circulados (Ⓒⓘⓡⓒⓛⓔⓓ)</option>
+                    <option value="boxed">Quadrados Negritos (🅑🅞🅧🅔🅓)</option>
+                    <option value="bolditalic">Itálico Negrito (𝓑𝓸𝓵𝓭 𝓘𝓽𝓪𝓵𝓲𝓬)</option>
+                    <option value="boldunderline">Negrito Sublinhado (B̲o̲l̲d̲ U̲n̲d̲e̲r̲l̲i̲n̲e̲)</option>
+                    <option value="smallcaps">Pequenas Maiúsculas (Sᴍᴀʟʟ Cᴀᴘs)</option>
+                    <option value="mathbold">Matemático Negrito (𝐀 𝐁 𝐂)</option>
+                </select>
+            </div>
+            <div class="control-group">
+                <label for="sectionTitleStyle">Títulos de Seção (JORNAIS, PORTAIS...)</label>
+                <select id="sectionTitleStyle">
+                    <option value="bold">Negrito (*texto*)</option>
+                    <option value="italic">Itálico (_texto_)</option>
+                    <option value="strikethrough">Riscado (~texto~)</option>
+                    <option value="monospace">Monoespaçado (```texto```)</option>
+                    <option value="doubledunderline">Duplo Sublinhado (𝒰𝓃𝒹𝑒𝓇𝓁𝒾𝓃𝑒)</option>
+                    <option value="gothic">Gótico (𝔉𝔬𝔫𝔱𝔢 𝔲𝔫𝔦𝔠𝔬𝔡𝔢)</option>
+                    <option value="cursive">Cursiva (𝓕𝓸𝓷𝓽𝓮 𝓾𝓃𝒾𝒸𝓸𝒹𝑒)</option>
+                    <option value="circled">Circulados (Ⓒⓘⓡⓒⓛⓔⓓ)</option>
+                    <option value="boxed">Quadrados Negritos (🅑🅞🅧🅔🅓)</option>
+                    <option value="bolditalic">Itálico Negrito (𝓑𝓸𝓵𝓭 𝓘𝓽𝓪𝓵𝓲𝓬)</option>
+                    <option value="boldunderline">Negrito Sublinhado (B̲o̲l̲d̲ U̲n̲d̲e̲r̲l̲i̲n̲e̲)</option>
+                    <option value="smallcaps">Pequenas Maiúsculas (Sᴍᴀʟʟ Cᴀᴘs)</option>
+                    <option value="mathbold">Matemático Negrito (𝐀 𝐁 𝐂)</option>
+                </select>
+            </div>
+            <div class="control-group">
+                <label for="publicationNameStyle">Nomes de Jornais/Portais/Canais</label>
+                <select id="publicationNameStyle">
+                    <option value="bold">Negrito (*texto*)</option>
+                    <option value="italic">Itálico (_texto_)</option>
+                    <option value="strikethrough">Riscado (~texto~)</option>
+                    <option value="monospace">Monoespaçado (```texto```)</option>
+                    <option value="doubledunderline">Duplo Sublinhado (𝒰𝓃𝒹𝑒𝓇𝓁𝒾𝓃𝑒)</option>
+                    <option value="gothic">Gótico (𝔉𝔬𝔫𝔱𝔢 𝔲𝔫𝔦𝔠𝔬𝔡𝔢)</option>
+                    <option value="cursive">Cursiva (𝓕𝓸𝓷𝓽𝓮 𝓾𝓃𝒾𝒸𝓸𝒹𝑒)</option>
+                    <option value="circled">Circulados (Ⓒⓘⓡⓒⓛⓔⓓ)</option>
+                    <option value="boxed">Quadrados Negritos (🅑🅞🅧🅔🅓)</option>
+                    <option value="bolditalic">Itálico Negrito (𝓑𝓸𝓵𝓭 𝓘𝓽𝓪𝓵𝓲𝓬)</option>
+                    <option value="boldunderline">Negrito Sublinhado (B̲o̲l̲d̲ U̲n̲d̲e̲r̲l̲i̲n̲e̲)</option>
+                    <option value="smallcaps">Pequenas Maiúsculas (Sᴍᴀʟʟ Cᴀᴘs)</option>
+                    <option value="mathbold">Matemático Negrito (𝐀 𝐁 𝐂)</option>
+                </select>
+            </div>
+            <div class="control-group">
+                <label for="articleTitleStyle">Títulos de Matérias</label>
+                <select id="articleTitleStyle">
+                    <option value="italic">Itálico (_texto_)</option>
+                    <option value="bold">Negrito (*texto*)</option>
+                    <option value="strikethrough">Riscado (~texto~)</option>
+                    <option value="monospace">Monoespaçado (```texto```)</option>
+                    <option value="doubledunderline">Duplo Sublinhado (𝒰𝓃𝒹𝑒𝓇𝓁𝒾𝓃𝑒)</option>
+                    <option value="gothic">Gótico (𝔉𝔬𝔫𝔱𝔢 𝔲𝔫𝔦𝔠𝔬𝔡𝔢)</option>
+                    <option value="cursive">Cursiva (𝓕𝓸𝓷𝓽𝓮 𝓾𝓃𝒾𝒸𝓸𝒹𝑒)</option>
+                    <option value="circled">Circulados (Ⓒⓘⓡⓒⓛⓔⓓ)</option>
+                    <option value="boxed">Quadrados Negritos (🅑🅞🅧🅔🅓)</option>
+                    <option value="bolditalic">Itálico Negrito (𝓑𝓸𝓵𝓭 𝓘𝓽𝓪𝓵𝓲𝓬)</option>
+                    <option value="boldunderline">Negrito Sublinhado (B̲o̲l̲d̲ U̲n̲d̲e̲r̲l̲i̲n̲e̲)</option>
+                    <option value="smallcaps">Pequenas Maiúsculas (Sᴍᴀʟʟ Cᴀᴘs)</option>
+                    <option value="mathbold">Matemático Negrito (𝐀 𝐁 𝐂)</option>
+                </select>
+            </div>
+        </div>
+
         <p>Cole o conteúdo do seu clipping (diretamente do Notepad) na caixa abaixo:</p>
         <textarea id="inputClipping">Clipping Meio Ambiente:
 
 CAPAS
 
-Jornal Estado de Minas
-
-Jornal O Tempo
-
-Jornal Hoje Em Dia
-
-Jornal Diário do Comércio
-
-Jornal Folha de S.Paulo 
-
-Jornal O Estado de S.Paulo
-
-Jornal o Globo
-
-Jornal Correio Braziliense
-
-
 MATÉRIAS QUE CITAM O SISEMA
-
 JORNAIS
-
-
+Jornal Estado de Minas - Título da matéria no Estado de Minas
+https://www.estadao.com.br/link-do-estado-de-minas/
 PORTAIS
-
-
+Portal G1 - Título da matéria no G1
+https://g1.globo.com/link-do-g1/
+REVISTA
+Revista Veja - Título da matéria na Veja
+https://veja.abril.com.br/link-da-veja/
 YOUTUBE
-
+Canal YouTube News - Título do vídeo
+https://www.youtube.com/watch?v=link-do-video
 
 OUTRAS MATÉRIAS RELEVANTES
-
-
 JORNAIS
-
-
-PORTAIS
-
-YOUTUBE
+Jornal Folha de São Paulo - Outro título de matéria
+https://www.folha.com.br/link-da-folha/
 
 Clipping direcionado exclusivamente para servidores, sendo proibida a divulgação para outras pessoas</textarea>
 
@@ -123,11 +220,124 @@ Clipping direcionado exclusivamente para servidores, sendo proibida a divulgaç�
     </div>
 
     <script>
+        // Funções para converter texto para estilos Unicode
+        function toGothic(text) {
+            const map = {
+                'A': '𝔄', 'B': '𝔅', 'C': 'ℭ', 'D': '𝔇', 'E': '𝔈', 'F': '𝔉', 'G': '𝔊', 'H': 'ℌ', 'I': 'ℑ', 'J': '𝔍', 'K': '𝔎', 'L': '𝔏', 'M': '𝔐', 'N': '𝔑', 'O': '𝔒', 'P': '𝔓', 'Q': '𝔔', 'R': 'ℜ', 'S': '𝔖', 'T': '𝔗', 'U': '𝔘', 'V': '𝔙', 'W': '𝔚', 'X': '𝔛', 'Y': '𝔜', 'Z': 'ℨ',
+                'a': '𝔞', 'b': '𝔟', 'c': '𝔠', 'd': '𝔡', 'e': '𝔢', 'f': '𝔣', 'g': '𝔤', 'h': '𝔥', 'i': '𝔦', 'j': '𝔧', 'k': '𝔨', 'l': '𝔩', 'm': '𝔪', 'n': '𝔫', 'o': '𝔬', 'p': '𝔭', 'q': '𝔮', 'r': '𝔯', 's': '𝔰', 't': '𝔱', 'u': '𝔲', 'v': '𝔳', 'w': '𝔴', 'x': '𝔵', 'y': '𝔶', 'z': '𝔷',
+                '0': '𝟶', '1': '𝟷', '2': '𝟸', '3': '𝟹', '4': '𝟺', '5': '𝟻', '6': '𝟼', '7': '𝟽', '8': '𝟾', '9': '𝟿'
+            };
+            return text.split('').map(char => map[char] || char).join('');
+        }
+
+        function toCursive(text) {
+            const map = {
+                'A': '𝒜', 'B': '𝐵', 'C': '𝒞', 'D': '𝒟', 'E': '𝐸', 'F': '𝐹', 'G': '𝒢', 'H': '𝐻', 'I': '𝐼', 'J': '𝒥', 'K': '𝒦', 'L': '𝐿', 'M': '𝑀', 'N': '𝒩', 'O': '𝒪', 'P': '𝒫', 'Q': '𝒬', 'R': '𝑅', 'S': '𝒮', 'T': '𝒯', 'U': '𝒰', 'V': '𝒱', 'W': '𝒲', 'X': '𝒳', 'Y': '𝒴', 'Z': '𝒵',
+                'a': '𝒶', 'b': '𝒷', 'c': '𝒸', 'd': '𝒹', 'e': '𝑒', 'f': '𝒻', 'g': '𝑔', 'h': '𝒽', 'i': '𝒾', 'j': '𝒿', 'k': '𝓀', 'l': '𝓁', 'm': '𝓂', 'n': '𝓃', 'o': '𝑜', 'p': '𝓅', 'q': '𝓆', 'r': '𝓇', 's': '𝓈', 't': '𝓉', 'u': '𝓊', 'v': '𝓋', 'w': '𝓌', 'x': '𝓍', 'y': '𝓎', 'z': '𝓏',
+                '0': '𝟶', '1': '𝟷', '2': '𝟸', '3': '𝟹', '4': '𝟺', '5': '𝟻', '6': '𝟼', '7': '𝟽', '8': '𝟾', '9': '𝟿'
+            };
+            return text.split('').map(char => map[char] || char).join('');
+        }
+
+        function toDoubledUnderline(text) {
+            const map = {
+                'A': '𝔸̲̲', 'B': '𝔹̲̲', 'C': 'ℂ̲̲', 'D': '𝔻̲̲', 'E': '𝔼̲̲', 'F': '𝔽̲̲', 'G': '𝔾̲̲', 'H': 'ℍ̲̲', 'I': '𝕀̲̲', 'J': '𝕁̲̲', 'K': '𝕂̲̲', 'L': '𝕃̲̲', 'M': '𝕄̲̲', 'N': 'ℕ̲̲', 'O': '𝕆̲̲', 'P': 'ℙ̲̲', 'Q': 'ℚ̲̲', 'R': 'ℝ̲̲', 'S': '𝕊̲̲', 'T': '𝕋̲̲', 'U': '𝕌̲̲', 'V': '𝕍̲̲', 'W': '𝕎̲̲', 'X': '𝕏̲̲', 'Y': '𝕐̲̲', 'Z': 'ℤ̲̲',
+                'a': '𝕒̲̲', 'b': '𝕓̲̲', 'c': '𝕔̲̲', 'd': '𝕕̲̲', 'e': '𝕖̲̲', 'f': '𝕗̲̲', 'g': '𝕘̲̲', 'h': '𝕙̲̲', 'i': '𝕚̲̲', 'j': '𝕛̲̲', 'k': '𝕜̲̲', 'l': '𝕝̲̲', 'm': '𝕞̲̲', 'n': '𝕟̲̲', 'o': '𝕠̲̲', 'p': '𝕡̲̲', 'q': '𝕢̲̲', 'r': '𝕣̲̲', 's': '𝕤̲̲', 't': '𝕥̲̲', 'u': '𝕦̲̲', 'v': '𝕧̲̲', 'w': '𝕨̲̲', 'x': '𝕩̲̲', 'y': '𝕪̲̲', 'z': '𝕫̲̲',
+                '0': '𝟘̲̲', '1': '𝟙̲̲', '2': '𝟚̲̲', '3': '𝟛̲̲', '4': '𝟜̲̲', '5': '𝟻̲̲', '6': '𝟼̲̲', '7': '𝟽̲̲', '8': '𝟾̲̲', '9': '𝟿̲̲'
+            };
+            return text.split('').map(char => map[char] || char).join('');
+        }
+
+        function toCircled(text) {
+            const map = {
+                'A': 'Ⓐ', 'B': 'Ⓑ', 'C': 'Ⓒ', 'D': 'Ⓓ', 'E': 'Ⓔ', 'F': 'Ⓕ', 'G': 'Ⓖ', 'H': 'Ⓗ', 'I': 'Ⓘ', 'J': 'Ⓙ', 'K': 'Ⓚ', 'L': 'Ⓛ', 'M': 'Ⓜ', 'N': 'Ⓝ', 'O': 'Ⓞ', 'P': 'Ⓟ', 'Q': 'Ⓠ', 'R': 'Ⓡ', 'S': 'Ⓢ', 'T': 'Ⓣ', 'U': 'Ⓤ', 'V': 'Ⓥ', 'W': 'Ⓦ', 'X': 'Ⓧ', 'Y': 'Ⓨ', 'Z': 'Ⓩ',
+                'a': 'ⓐ', 'b': 'ⓑ', 'c': 'ⓒ', 'd': 'ⓓ', 'e': 'ⓔ', 'f': 'ⓕ', 'g': 'ⓖ', 'h': 'ⓗ', 'i': 'ⓘ', 'j': 'ⓙ', 'k': 'ⓚ', 'l': 'ⓛ', 'm': 'ⓜ', 'n': 'ⓝ', 'o': 'ⓞ', 'p': 'ⓟ', 'q': 'ⓠ', 'r': 'ⓡ', 's': 'ⓢ', 't': 'ⓣ', 'u': 'ⓤ', 'v': 'ⓥ', 'w': 'ⓦ', 'x': 'ⓧ', 'y': 'ⓨ', 'z': 'ⓩ',
+                '0': '⓪', '1': '①', '2': '②', '3': '③', '4': '④', '5': '⑤', '6': '⑥', '7': '⑦', '8': '⑧', '9': '⑨'
+            };
+            return text.split('').map(char => map[char] || char).join('');
+        }
+
+        function toBoxed(text) {
+            const map = {
+                'A': '🄰', 'B': '🄱', 'C': '🄲', 'D': '🄳', 'E': '🄴', 'F': '🄵', 'G': '🄶', 'H': '🄷', 'I': '🄸', 'J': '🄹', 'K': '🄺', 'L': '🄻', 'M': '🄼', 'N': '🄽', 'O': '🄾', 'P': '🄿', 'Q': '🅀', 'R': '🅁', 'S': '🅂', 'T': '🅃', 'U': '🅄', 'V': '🅅', 'W': '🅆', 'X': '🅇', 'Y': '🅈', 'Z': '🅉',
+                'a': '🅐', 'b': '🅑', 'c': '🅒', 'd': '🅓', 'e': '🅔', 'f': '🅕', 'g': '🅖', 'h': '🅗', 'i': '🅘', 'j': '🅙', 'k': '🅚', 'l': '🅛', 'm': '🅜', 'n': '🅝', 'o': '🅞', 'p': '🅟', 'q': '🅠', 'r': '🅡', 's': '🅢', 't': '🅣', 'u': '🅤', 'v': '🅥', 'w': '🅦', 'x': '🅧', 'y': '🅨', 'z': '🅩',
+                '0': '⓿', '1': '❶', '2': '❷', '3': '❸', '4': '❹', '5': '❺', '6': '❻', '7': '❼', '8': '❽', '9': '❾'
+            };
+            return text.split('').map(char => map[char] || char).join('');
+        }
+
+        function toBoldItalic(text) {
+            const map = {
+                'A': '𝑨', 'B': '𝑩', 'C': '𝑪', 'D': '𝑫', 'E': '𝑬', 'F': '𝑭', 'G': '𝑮', 'H': '𝑯', 'I': '𝑰', 'J': '𝑱', 'K': '𝑲', 'L': '𝑳', 'M': '𝑴', 'N': '𝑵', 'O': '𝑶', 'P': '𝑷', 'Q': '𝑸', 'R': '𝑹', 'S': '𝑺', 'T': '𝑻', 'U': '𝑼', 'V': '𝑽', 'W': '𝑾', 'X': '𝑿', 'Y': '𝒀', 'Z': '𝒁',
+                'a': '𝒂', 'b': '𝒃', 'c': '𝒄', 'd': '𝒅', 'e': '𝒆', 'f': '𝒇', 'g': '𝒈', 'h': '𝒉', 'i': '𝒊', 'j': '𝒋', 'k': '𝒌', 'l': '𝒍', 'm': '𝒎', 'n': '𝒏', 'o': '𝒐', 'p': '𝒑', 'q': '𝒒', 'r': '𝒓', 's': '𝒔', 't': '𝒕', 'u': '𝒖', 'v': '𝒗', 'w': '𝒘', 'x': '𝒙', 'y': '𝒚', 'z': '𝒛',
+                '0': '𝟎', '1': '𝟏', '2': '𝟐', '3': '𝟑', '4': '𝟒', '5': '𝟓', '6': '𝟔', '7': '𝟕', '8': '𝟖', '9': '𝟗'
+            };
+            return text.split('').map(char => map[char] || char).join('');
+        }
+
+        function toBoldUnderline(text) {
+            const map = {
+                'A': '𝗔̲', 'B': '𝗕̲', 'C': '𝗖̲', 'D': '𝗗̲', 'E': '𝗘̲', 'F': '𝗙̲', 'G': '𝗚̲', 'H': '𝗛̲', 'I': '𝗜̲', 'J': '𝗝̲', 'K': '𝗞̲', 'L': '𝗟̲', 'M': '𝗠̲', 'N': '𝗡̲', 'O': '𝗢̲', 'P': '𝗣̲', 'Q': '𝗤̲', 'R': '𝗥̲', 'S': '𝗦̲', 'T': '𝗧̲', 'U': '𝗨̲', 'V': '𝗩̲', 'W': '𝗪̲', 'X': '𝗫̲', 'Y': '𝗬̲', 'Z': '𝗭̲',
+                'a': '𝗮̲', 'b': '𝗯̲', 'c': '𝗰̲', 'd': '𝗱̲', 'e': '𝗲̲', 'f': '𝗳̲', 'g': '𝗴̲', 'h': '𝗵̲', 'i': '𝗶̲', 'j': '𝗷̲', 'k': '𝗸̲', 'l': '𝗹̲', 'm': '𝗺̲', 'n': '𝗻̲', 'o': '𝗼̲', 'p': '𝗽̲', 'q': '𝗾̲', 'r': '𝗿̲', 's': '𝘀̲', 't': '𝘁̲', 'u': '𝘂̲', 'v': '𝘃̲', 'w': '𝘄̲', 'x': '𝘅̲', 'y': '𝘆̲', 'z': '𝘇̲',
+                '0': '𝟬̲', '1': '𝟭̲', '2': '𝟮̲', '3': '𝟯̲', '4': '𝟰̲', '5': '𝟱̲', '6': '𝟲̲', '7': '𝟳̲', '8': '𝟴̲', '9': '𝟵̲'
+            };
+            return text.split('').map(char => map[char] || char).join('');
+        }
+
+        function toSmallCaps(text) {
+            const map = {
+                'A': 'ᴀ', 'B': 'ʙ', 'C': 'ᴄ', 'D': 'ᴅ', 'E': 'ᴇ', 'F': 'ꜰ', 'G': 'ɢ', 'H': 'ʜ', 'I': 'ɪ', 'J': 'ᴊ', 'K': 'ᴋ', 'L': 'ʟ', 'M': 'ᴍ', 'N': 'ɴ', 'O': 'ᴏ', 'P': 'ᴘ', 'Q': 'ǫ', 'R': 'ʀ', 'S': 'ꜱ', 'T': 'ᴛ', 'U': 'ᴜ', 'V': 'ᴠ', 'W': 'ᴡ', 'X': 'x', 'Y': 'ʏ', 'Z': 'ᴢ',
+                'a': 'ᴀ', 'b': 'ʙ', 'c': 'ᴄ', 'd': 'ᴅ', 'e': 'ᴇ', 'f': 'ꜰ', 'g': 'ɢ', 'h': 'ʜ', 'i': 'ɪ', 'j': 'ᴊ', 'k': 'ᴋ', 'l': 'ʟ', 'm': 'ᴍ', 'n': 'ɴ', 'o': 'ᴏ', 'p': 'ᴘ', 'q': 'ǫ', 'r': 'ʀ', 's': 'ꜱ', 't': 'ᴛ', 'u': 'ᴜ', 'v': 'ᴠ', 'w': 'ᴡ', 'x': 'x', 'y': 'ʏ', 'z': 'ᴢ',
+                '0': '₀', '1': '₁', '2': '₂', '3': '₃', '4': '₄', '5': '₅', '6': '₆', '7': '₇', '8': '₈', '9': '₉'
+            };
+            return text.split('').map(char => map[char] || char).join('');
+        }
+
+        function toMathBold(text) {
+            const map = {
+                'A': '𝐀', 'B': '𝐁', 'C': '𝐂', 'D': '𝐃', 'E': '𝐄', 'F': '𝐅', 'G': '𝐆', 'H': '𝐇', 'I': '𝐈', 'J': '𝐉', 'K': '𝐊', 'L': '𝐋', 'M': '𝐌', 'N': '𝐍', 'O': '𝐎', 'P': '𝐏', 'Q': '𝐐', 'R': '𝐑', 'S': '𝐒', 'T': '𝐓', 'U': '𝐔', 'V': '𝐕', 'W': '𝐖', 'X': '𝐗', 'Y': '𝐘', 'Z': '𝐙',
+                'a': '𝐚', 'b': '𝐛', 'c': '𝐜', 'd': '𝐝', 'e': '𝐞', 'f': '𝐟', 'g': '𝐠', 'h': '𝐡', 'i': '𝐢', 'j': '𝐣', 'k': '𝐤', 'l': '𝐥', 'm': '𝐦', 'n': '𝐧', 'o': '𝐨', 'p': '𝐩', 'q': '𝐪', 'r': '𝐫', 's': '𝐬', 't': '𝐭', 'u': '𝐮', 'v': '𝐯', 'w': '𝐰', 'x': '𝐱', 'y': '𝐲', 'z': '𝐳',
+                '0': '𝟎', '1': '𝟏', '2': '𝟐', '3': '𝟑', '4': '𝟒', '5': '𝟓', '6': '𝟔', '7': '𝟕', '8': '𝟖', '9': '𝟗'
+            };
+            return text.split('').map(char => map[char] || char).join('');
+        }
+
+        // Função para aplicar formatação de texto
+        function applyFormat(text, style) {
+            switch (style) {
+                case 'bold':
+                    return `*${text}*`;
+                case 'italic':
+                    return `_${text}_`;
+                case 'strikethrough':
+                    return `~${text}~`;
+                case 'monospace':
+                    return `\`\`\`${text}\`\`\``;
+                case 'gothic':
+                    return toGothic(text);
+                case 'cursive':
+                    return toCursive(text);
+                case 'doubledunderline':
+                    return toDoubledUnderline(text);
+                case 'circled':
+                    return toCircled(text);
+                case 'boxed':
+                    return toBoxed(text);
+                case 'bolditalic':
+                    return toBoldItalic(text);
+                case 'boldunderline':
+                    return toBoldUnderline(text);
+                case 'smallcaps':
+                    return toSmallCaps(text);
+                case 'mathbold':
+                    return toMathBold(text);
+                default:
+                    return text;
+            }
+        }
+
         async function shortenUrl(longUrl) {
             try {
-                // Usando a API gratuita do TinyURL.
-                // Recomenda-se um proxy CORS ou backend para uso em produção,
-                // mas para um arquivo local, pode funcionar ou retornar o original em caso de erro.
                 const apiUrl = `https://tinyurl.com/api-create.php?url=${encodeURIComponent(longUrl)}`;
                 const response = await fetch(apiUrl);
                 if (!response.ok) {
@@ -145,29 +355,33 @@ Clipping direcionado exclusivamente para servidores, sendo proibida a divulgaç�
             const input = document.getElementById('inputClipping').value;
             const outputArea = document.getElementById('outputClipping');
             const loadingMessage = document.getElementById('loadingMessage');
-            outputArea.value = ''; // Limpa a área de saída
-            loadingMessage.style.display = 'block'; // Mostra a mensagem de carregamento
 
-            let lines = input.split('\n').map(line => line.trim()).filter(line => line.length > 0); // Filtra linhas vazias iniciais
+            // Obter estilos selecionados
+            const headerStyle = document.getElementById('headerStyle').value;
+            const areaTitleStyle = document.getElementById('areaTitleStyle').value;
+            const sectionTitleStyle = document.getElementById('sectionTitleStyle').value;
+            const publicationNameStyle = document.getElementById('publicationNameStyle').value;
+            const articleTitleStyle = document.getElementById('articleTitleStyle').value;
+
+            outputArea.value = '';
+            loadingMessage.style.display = 'block';
+
+            let lines = input.split('\n').map(line => line.trim()).filter(line => line.length > 0);
             let formattedContent = [];
             let currentSection = '';
-            let isInsideYouTubeSection = false; // Flag para controlar a seção YouTube
 
-            // Processar o cabeçalho e adicionar a data
+            // Processar o cabeçalho
             const today = new Date();
             const day = String(today.getDate()).padStart(2, '0');
             const month = String(today.getMonth() + 1).padStart(2, '0');
             const year = today.getFullYear();
-            formattedContent.push(`*Clipping Meio Ambiente: ${day}.${month}.${year}*`);
+            const headerText = `Clipping Meio Ambiente: ${day}.${month}.${year}`;
+            formattedContent.push(applyFormat(headerText, headerStyle));
             formattedContent.push(''); // Linha em branco após o cabeçalho
 
-            // Pular o cabeçalho inicial que já está pré-preenchido
-            if (lines[0] && lines[0].toLowerCase().includes('clipping meio ambiente:')) {
-                lines.shift();
-            }
-
             // Remover o rodapé do input para adicioná-lo no final, formatado
-            const footerIndex = lines.findIndex(line => line.toLowerCase().includes('clipping direcionado exclusivamente para servidores'));
+            const footerString = 'Clipping direcionado exclusivamente para servidores, sendo proibida a divulgação para outras pessoas';
+            const footerIndex = lines.findIndex(line => line.toLowerCase().includes(footerString.toLowerCase()));
             let inputContentWithoutFooter = lines;
             if (footerIndex !== -1) {
                 inputContentWithoutFooter = lines.slice(0, footerIndex);
@@ -176,43 +390,40 @@ Clipping direcionado exclusivamente para servidores, sendo proibida a divulgaç�
             for (let i = 0; i < inputContentWithoutFooter.length; i++) {
                 let line = inputContentWithoutFooter[i];
 
-                // Ignora linhas que são exatamente os títulos pré-preenchidos
-                const prefilledTitles = [
-                    'Clipping Meio Ambiente:', 'CAPAS', 'MATÉRIAS QUE CITAM O SISEMA',
-                    'JORNAIS', 'PORTAIS', 'YOUTUBE', 'OUTRAS MATÉRIAS RELEVANTES',
-                    'Clipping direcionado exclusivamente para servidores, sendo proibida a divulgação para outras pessoas'
-                ];
-                if (prefilledTitles.includes(line)) {
-                    // Mantém a formatação original desses títulos, se eles vierem do input
-                    if (line.toUpperCase() === line) { // Se for um título de área (CAPAS, MATÉRIAS...)
-                        formattedContent.push(`*${line.toUpperCase()}*`);
-                        formattedContent.push(''); // Linha em branco após o título da seção
-                    } else if (line.startsWith('Clipping Meio Ambiente:')) {
-                         // Já tratamos o cabeçalho com a data, então ignora este
-                    } else if (line.startsWith('Clipping direcionado exclusivamente para servidores')) {
-                        // O rodapé será adicionado no final
-                    }
+                // Ignora a linha do cabeçalho se ela for a primeira no input
+                if (i === 0 && line.toLowerCase().includes('clipping meio ambiente:')) {
                     continue;
                 }
 
-                // Títulos de Seção (Maiúsculas, Negrito)
-                const sectionTitles = ['CAPAS', 'MATÉRIAS QUE CITAM O SISEMA', 'OUTRAS MATÉRIAS RELEVANTES', 'JORNAIS', 'PORTAIS', 'REVISTA', 'YOUTUBE'];
-                if (sectionTitles.includes(line.toUpperCase())) {
-                    formattedContent.push(`\n*${line.toUpperCase()}*`); // Apenas negrito, sem itálico
-                    formattedContent.push(''); // Linha em branco após o título da seção
+                // Títulos de Área (Maiúsculas)
+                const areaTitles = ['CAPAS', 'MATÉRIAS QUE CITAM O SISEMA', 'OUTRAS MATÉRIAS RELEVANTES'];
+                if (areaTitles.includes(line.toUpperCase())) {
+                    formattedContent.push(`\n${applyFormat(line.toUpperCase(), areaTitleStyle)}`);
+                    formattedContent.push('');
                     currentSection = line.toUpperCase();
-                    isInsideYouTubeSection = (currentSection === 'YOUTUBE'); // Define a flag para YouTube
                     continue;
                 }
 
-                // Nomes de Jornais/Portais/Revistas/YouTube (Negrito)
-                if (line.startsWith('Jornal ') || line.startsWith('Portal ') || line.startsWith('Revista ') || (isInsideYouTubeSection && !line.match(/(https?:\/\/[^\s]+)/g))) {
-                    formattedContent.push(`*${line}*`);
-                    // Se estiver dentro da seção YouTube e formatou o nome do canal,
-                    // desativa a flag para que a próxima linha (título da matéria/vídeo) não seja negrito.
-                    if (isInsideYouTubeSection) {
-                        isInsideYouTubeSection = false;
+                // Títulos de Seção (Maiúsculas)
+                const sectionTitles = ['JORNAIS', 'PORTAIS', 'REVISTA', 'YOUTUBE'];
+                if (sectionTitles.includes(line.toUpperCase())) {
+                    formattedContent.push(`${applyFormat(line.toUpperCase(), sectionTitleStyle)}`);
+                    currentSection = line.toUpperCase();
+                    continue;
+                }
+
+                // Nomes de Jornais/Portais/Revistas/Canais
+                const publicationPrefixes = ['Jornal ', 'Portal ', 'Revista ', 'Canal '];
+                let isPublicationName = false;
+                for (const prefix of publicationPrefixes) {
+                    if (line.startsWith(prefix)) {
+                        isPublicationName = true;
+                        break;
                     }
+                }
+
+                if (isPublicationName) {
+                    formattedContent.push(applyFormat(line, publicationNameStyle));
                     continue;
                 }
 
@@ -231,25 +442,25 @@ Clipping direcionado exclusivamente para servidores, sendo proibida a divulgaç�
                         processedLine = processedLine.replace(link, shortLink);
                     }
                     formattedContent.push(processedLine);
-                    // Adiciona uma linha em branco após cada link, se a próxima linha não for outro link imediatamente.
-                    if (i + 1 < inputContentWithoutFooter.length && !urlRegex.test(inputContentWithoutFooter[i+1])) {
+                    // Adiciona uma linha em branco após o link se a próxima linha não for um link
+                    if (i + 1 < inputContentWithoutFooter.length && !urlRegex.test(inputContentWithoutFooter[i+1]) && !sectionTitles.includes(inputContentWithoutFooter[i+1].toUpperCase()) && !areaTitles.includes(inputContentWithoutFooter[i+1].toUpperCase()) && !publicationPrefixes.some(prefix => inputContentWithoutFooter[i+1].startsWith(prefix))) {
                         formattedContent.push('');
                     }
-                    continue; // Pula para a próxima linha
+                    continue;
                 }
 
-                // Títulos das matérias (Itálico) - se não for um link, um nome de jornal/portal/YouTube ou título de seção
-                if (line.length > 0) { // Garante que não adicione itálico em linhas vazias que não sejam de espaçamento intencional
-                    formattedContent.push(`_${line}_`);
+                // Títulos das matérias (se a linha não foi processada acima e não está vazia)
+                if (line.length > 0) {
+                    formattedContent.push(applyFormat(line, articleTitleStyle));
                 }
             }
 
-            // Rodapé (garantir que seja apenas uma vez e formatado corretamente)
+            // Rodapé final, formatado apenas uma vez
             formattedContent.push(''); // Linha em branco antes do rodapé
-            formattedContent.push('*_Clipping direcionado exclusivamente para servidores, sendo proibida a divulgação para outras pessoas._*');
+            formattedContent.push(`*_${footerString}_*`); // Aplica negrito e itálico ao rodapé
 
             outputArea.value = formattedContent.join('\n');
-            loadingMessage.style.display = 'none'; // Esconde a mensagem de carregamento
+            loadingMessage.style.display = 'none';
         }
     </script>
 </body>
