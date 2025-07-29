@@ -3,34 +3,43 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Clipping Meio Ambiente no WhatsApp</title>
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📰</text></svg>">
+    <title>Format Clipping</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🌿</text></svg>">
     <style>
         body {
             font-family: Arial, sans-serif;
             margin: 20px;
-            background-color: #e0ffe0; /* Verde claro */
+            background-color: #f0fff0; /* Branco acinzentado (tom de verde suave) */
             color: #333;
+            line-height: 1.6;
         }
         .container {
-            max-width: 800px;
+            max-width: 900px;
             margin: 0 auto;
             background-color: #ffffff;
             padding: 30px;
-            border-radius: 8px;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            border-radius: 12px;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
         }
         h1 {
             color: #2e8b57; /* Verde mar */
             text-align: center;
             margin-bottom: 30px;
+            font-size: 2.2em;
+        }
+        h2 {
+            color: #3cb371; /* Verde médio */
+            margin-top: 25px;
+            margin-bottom: 15px;
+            border-bottom: 2px solid #8fbc8f; /* Verde musgo claro */
+            padding-bottom: 8px;
         }
         .controls {
-            background-color: #f0fff0;
-            padding: 15px;
-            border-radius: 8px;
-            margin-bottom: 25px;
-            border: 1px dashed #a2d2a2;
+            background-color: #e0eee0; /* Verde claro */
+            padding: 25px;
+            border-radius: 10px;
+            margin-bottom: 30px;
+            border: 1px solid #8fbc8f; /* Verde musgo claro */
         }
         .control-group {
             margin-bottom: 15px;
@@ -40,60 +49,213 @@
         }
         .control-group label {
             font-weight: bold;
-            color: #2e8b57;
-            margin-right: 10px;
-            min-width: 150px;
+            color: #2e8b57; /* Verde mar */
+            margin-right: 18px;
+            min-width: 190px;
+            font-size: 1.05rem;
         }
-        .control-group select, .control-group input[type="checkbox"] {
-            margin-right: 15px;
+        .control-group select {
+            padding: 10px;
+            border-radius: 6px;
+            border: 1px solid #a9d18e; /* Verde oliva claro */
+            font-size: 1rem;
+            flex-grow: 1;
+            max-width: calc(100% - 210px); /* Ajuste para responsividade */
         }
         textarea {
             width: 100%;
-            padding: 15px;
-            margin-bottom: 20px;
-            border: 1px solid #a2d2a2; /* Verde suave */
-            border-radius: 5px;
+            padding: 18px;
+            margin-bottom: 25px;
+            border: 1px solid #8fbc8f; /* Verde musgo claro */
+            border-radius: 8px;
             font-size: 16px;
-            box-sizing: border-box; /* Garante que padding e border sejam incluídos na largura */
+            box-sizing: border-box;
             resize: vertical;
-            min-height: 200px;
+            min-height: 280px;
+        }
+        .button-group {
+            display: flex;
+            justify-content: space-around;
+            gap: 25px; /* Espaço entre os botões */
+            margin-bottom: 35px;
         }
         button {
             background-color: #3cb371; /* Verde médio */
             color: white;
-            padding: 12px 25px;
+            padding: 14px 30px;
             border: none;
-            border-radius: 5px;
+            border-radius: 6px;
             cursor: pointer;
-            font-size: 18px;
-            display: block;
-            margin: 0 auto 30px auto;
-            transition: background-color 0.3s ease;
+            font-size: 1.15rem;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            flex: 1; /* Para que os botões ocupem o mesmo espaço */
+            max-width: 48%; /* Para garantir que não se estendam demais em telas grandes */
         }
         button:hover {
-            background-color: #2e8b57; /* Verde mar */
+            background-color: #2e8b57; /* Verde mar (mais escuro) */
+            transform: translateY(-2px);
         }
-        .output-label {
+        .output-section {
+            margin-top: 40px;
+            padding: 25px;
+            background-color: #f5f5dc; /* Bege claro (tom de verde suave) */
+            border: 1px dashed #8fbc8f; /* Verde musgo claro */
+            border-radius: 10px;
+            min-height: 150px;
+            position: relative;
+        }
+        .output-section label {
             font-weight: bold;
-            margin-bottom: 10px;
             display: block;
-            color: #2e8b57;
+            margin-bottom: 12px;
+            color: #2e8b57; /* Verde mar */
+            font-size: 1.2em;
+        }
+        .output-text {
+            white-space: pre-wrap; /* Preserves whitespace and wraps lines */
+            word-break: break-all; /* Ensures long words/URLs break to fit */
+            overflow-x: auto; /* Adds horizontal scroll if content is too wide */
+            background-color: #ffffff;
+            padding: 12px;
+            border: 1px solid #a9d18e; /* Verde oliva claro */
+            border-radius: 6px;
+            max-height: 350px; /* Altura máxima para rolagem */
+            overflow-y: auto; /* Adiciona rolagem vertical se o conteúdo for muito longo */
+        }
+        .copy-button {
+            background-color: #2e8b57; /* Verde mar */
+            margin-top: 20px;
+            width: auto;
+            padding: 12px 22px;
+            display: inline-block; /* Para não ocupar a largura total */
+            border-radius: 6px;
+            color: white;
+            border: none;
+            cursor: pointer;
+            font-size: 1.05rem;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+        .copy-button:hover {
+            background-color: #3cb371; /* Verde médio (mais claro ao hover) */
+            transform: translateY(-1px);
         }
         .loading {
             text-align: center;
-            margin-top: 20px;
+            margin-top: 25px;
             font-style: italic;
-            color: #666;
+            color: #556b2f; /* Verde oliva escuro */
             display: none;
+            font-size: 0.95em;
+        }
+
+        /* Responsividade melhorada */
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px;
+                border-radius: 8px;
+            }
+            h1 {
+                font-size: 2em;
+                margin-bottom: 20px;
+            }
+            h2 {
+                font-size: 1.3em;
+                margin-top: 20px;
+                margin-bottom: 12px;
+                padding-bottom: 6px;
+            }
+            .controls {
+                padding: 15px;
+                border-radius: 6px;
+                margin-bottom: 20px;
+            }
+            .control-group {
+                flex-direction: column;
+                align-items: flex-start;
+                margin-bottom: 12px;
+            }
+            .control-group label {
+                margin-bottom: 6px;
+                margin-right: 0;
+                min-width: unset;
+                font-size: 1rem;
+            }
+            .control-group select {
+                max-width: 100%;
+                padding: 8px;
+                border-radius: 4px;
+            }
+            textarea {
+                padding: 12px;
+                margin-bottom: 20px;
+                border-radius: 6px;
+                font-size: 15px;
+                min-height: 200px;
+            }
+            .button-group {
+                flex-direction: column;
+                gap: 15px;
+                margin-bottom: 25px;
+            }
+            button {
+                max-width: 100%;
+                padding: 12px 20px;
+                font-size: 1.1rem;
+                border-radius: 4px;
+            }
+            .output-section {
+                margin-top: 30px;
+                padding: 15px;
+                border-radius: 6px;
+            }
+            .output-section label {
+                font-size: 1.1em;
+                margin-bottom: 8px;
+            }
+            .output-text {
+                padding: 10px;
+                border-radius: 4px;
+                font-size: 14px;
+                max-height: 250px;
+            }
+            .copy-button {
+                margin-top: 15px;
+                padding: 10px 18px;
+                font-size: 1rem;
+                border-radius: 4px;
+            }
+        }
+
+        /* Para telas ainda menores (smartphones pequenos) */
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 1.8em;
+            }
+            h2 {
+                font-size: 1.2em;
+            }
+            textarea {
+                font-size: 14px;
+                min-height: 150px;
+            }
+            button {
+                font-size: 1rem;
+            }
+            .output-text {
+                font-size: 13px;
+            }
+            .control-group label {
+                font-size: 0.95rem;
+            }
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>🌿 Clipping Meio Ambiente no WhatsApp 🌿</h1>
+        <h1>🌿 Format Clipping 🌿</h1>
 
         <div class="controls">
-            <h2>Opções de Formatação</h2>
+            <h2>Opções de Formatação para WhatsApp</h2>
             <div class="control-group">
                 <label for="headerStyle">Cabeçalho (Clipping Meio Ambiente:)</label>
                 <select id="headerStyle">
@@ -187,55 +349,53 @@
         </div>
 
         <p>Cole o conteúdo do seu clipping (diretamente do Notepad) na caixa abaixo:</p>
-        <textarea id="inputClipping">Clipping Meio Ambiente:
+        <textarea id="inputClipping" placeholder="Cole seu conteúdo jornalístico aqui...
+
+Exemplo:
+Clipping Meio Ambiente:
 
 CAPAS
 
 Jornal Estado de Minas
+https://www.estadodeminas.com.br/capa-de-hoje
 
-Jornal O Tempo
-
-Jornal Hoje em Dia
-
-Jornal Diário do Comércio
-
-Jornal Folha de S. Paulo
-
-Jornal O Estado de S. Paulo
-
-Jornal O Globo
-
-Jornal Correio Braziliense
-
-            
 MATÉRIAS QUE CITAM O SISEMA
-            
+
 JORNAIS
 
-PORTAIS
-
-REVISTAS
-
-YOUTUBE
+Portal G1
+Cidades mineiras avançam na pauta ambiental
+https://g1.globo.com/minas-gerais/noticia/2024/07/28/cidades-mineiras-avancam-na-pauta-ambiental.ghtml
 
 OUTRAS MATÉRIAS RELEVANTES
-            
-JORNAIS
-
-PORTAIS
-
-REVISTAS
 
 YOUTUBE
 
-Clipping direcionado exclusivamente para servidores, sendo proibida a divulgação para outras pessoas</textarea>
+Canal Meio Ambiente em Foco
+Novas tecnologias para sustentabilidade
+https://www.youtube.com/watch?v=ExemploVideo
 
-        <button onclick="formatClipping()">Formatar para WhatsApp</button>
+Clipping direcionado exclusivamente para servidores, sendo proibida a divulgação para outras pessoas"></textarea>
 
-        <div class="loading" id="loadingMessage">Encurtando links, aguarde um momento...</div>
+        <div class="button-group">
+            <button onclick="formatClippingWhatsApp()">Formatar para WhatsApp</button>
+            <button onclick="formatClippingHTML()">Formatar para HTML</button>
+        </div>
 
-        <span class="output-label">Conteúdo formatado para WhatsApp (pronto para copiar):</span>
-        <textarea id="outputClipping" readonly></textarea>
+        <div class="loading" id="loadingMessage">Encurtando links para WhatsApp, aguarde um momento...</div>
+
+        <div class="output-section">
+            <label>Conteúdo formatado para WhatsApp (pronto para copiar):</label>
+            <div id="outputClippingWhatsApp" class="output-text"></div>
+            <button class="copy-button" onclick="copyToClipboard('outputClippingWhatsApp')">Copiar para WhatsApp</button>
+        </div>
+
+        <div class="output-section" style="margin-top: 40px;">
+            <label>Conteúdo formatado para HTML (pronto para copiar):</label>
+            <div id="outputClippingHTML" class="output-text"></div>
+            <button class="copy-button" onclick="copyToClipboard('outputClippingHTML')">Copiar para HTML</button>
+        </div>
+
     </div>
 
     <script>
@@ -321,8 +481,8 @@ Clipping direcionado exclusivamente para servidores, sendo proibida a divulgaç�
             return text.split('').map(char => map[char] || char).join('');
         }
 
-        // Função para aplicar formatação de texto
-        function applyFormat(text, style) {
+        // Função para aplicar formatação de texto para WhatsApp
+        function applyWhatsAppFormat(text, style) {
             switch (style) {
                 case 'bold':
                     return `*${text}*`;
@@ -355,24 +515,27 @@ Clipping direcionado exclusivamente para servidores, sendo proibida a divulgaç�
             }
         }
 
+        // Função para encurtar URL
         async function shortenUrl(longUrl) {
+            // Tenta usar TinyURL
             try {
-                const apiUrl = `https://tinyurl.com/api-create.php?url=${encodeURIComponent(longUrl)}`;
-                const response = await fetch(apiUrl);
-                if (!response.ok) {
-                    throw new Error(`HTTP error! status: ${response.status}`);
+                const tinyUrlApi = `https://tinyurl.com/api-create.php?url=${encodeURIComponent(longUrl)}`;
+                const tinyResponse = await fetch(tinyUrlApi);
+                if (!tinyResponse.ok) {
+                    throw new Error(`HTTP error TinyURL! status: ${tinyResponse.status}`);
                 }
-                const shortUrl = await response.text();
+                const shortUrl = await tinyResponse.text();
                 return shortUrl;
-            } catch (error) {
-                console.error("Erro ao encurtar URL:", error);
-                return longUrl; // Retorna a URL original em caso de erro
+            } catch (tinyError) {
+                console.error("Erro ao encurtar URL com TinyURL:", tinyError);
+                return longUrl; // Retorna a URL original se TinyURL falhar
             }
         }
 
-        async function formatClipping() {
+        // Função para formatar para WhatsApp
+        async function formatClippingWhatsApp() {
             const input = document.getElementById('inputClipping').value;
-            const outputArea = document.getElementById('outputClipping');
+            const outputArea = document.getElementById('outputClippingWhatsApp');
             const loadingMessage = document.getElementById('loadingMessage');
 
             // Obter estilos selecionados
@@ -382,7 +545,7 @@ Clipping direcionado exclusivamente para servidores, sendo proibida a divulgaç�
             const publicationNameStyle = document.getElementById('publicationNameStyle').value;
             const articleTitleStyle = document.getElementById('articleTitleStyle').value;
 
-            outputArea.value = '';
+            outputArea.textContent = ''; // Limpa a área de saída
             loadingMessage.style.display = 'block';
 
             let lines = input.split('\n').map(line => line.trim()).filter(line => line.length > 0);
@@ -390,14 +553,14 @@ Clipping direcionado exclusivamente para servidores, sendo proibida a divulgaç�
             
             // Definir os títulos de área para reconhecimento e seus emojis
             const areaTitles = {
-                'CAPAS': '📰 CAPAS', // Emoji alterado para 📰
+                'CAPAS': '📰 CAPAS',
                 'MATÉRIAS QUE CITAM O SISEMA': '📢 MATÉRIAS QUE CITAM O SISEMA',
                 'OUTRAS MATÉRIAS RELEVANTES': '💡 OUTRAS MATÉRIAS RELEVANTES'
             };
             const sectionTitles = ['JORNAIS', 'PORTAIS', 'REVISTAS', 'YOUTUBE'];
             const publicationPrefixes = ['Jornal ', 'Portal ', 'Revista ', 'Canal '];
 
-            let currentArea = ''; // Para controlar em qual área estamos (especialmente para CAPAS)
+            let currentArea = ''; 
 
             // Processar o cabeçalho
             const today = new Date();
@@ -405,7 +568,7 @@ Clipping direcionado exclusivamente para servidores, sendo proibida a divulgaç�
             const month = String(today.getMonth() + 1).padStart(2, '0');
             const year = today.getFullYear();
             const headerText = `Clipping Meio Ambiente: ${day}.${month}.${year}`;
-            formattedContent.push(applyFormat(headerText, headerStyle));
+            formattedContent.push(applyWhatsAppFormat(headerText, headerStyle));
             formattedContent.push(''); // Linha em branco após o cabeçalho
 
             // Remover o rodapé do input para adicioná-lo no final, formatado
@@ -419,7 +582,6 @@ Clipping direcionado exclusivamente para servidores, sendo proibida a divulgaç�
             for (let i = 0; i < inputContentWithoutFooter.length; i++) {
                 let line = inputContentWithoutFooter[i];
 
-                // Ignora a linha do cabeçalho se ela for a primeira no input original
                 if (i === 0 && line.toLowerCase().includes('clipping meio ambiente:')) {
                     continue;
                 }
@@ -429,23 +591,21 @@ Clipping direcionado exclusivamente para servidores, sendo proibida a divulgaç�
                 // 1. Títulos de Área (ex: CAPAS, MATÉRIAS QUE CITAM O SISEMA)
                 if (areaTitles[normalizedLine]) {
                     if (formattedContent.length > 1 && formattedContent[formattedContent.length - 1] !== '') {
-                        formattedContent.push(''); // Adiciona linha em branco antes, se não for o primeiro item e se a linha anterior não for vazia
+                        formattedContent.push('');
                     }
-                    formattedContent.push(applyFormat(areaTitles[normalizedLine], areaTitleStyle)); // Adiciona o emoji
-                    formattedContent.push(''); // Linha em branco após o título da área
-                    currentArea = normalizedLine; // Atualiza a área atual
-                    continue; 
+                    formattedContent.push(applyWhatsAppFormat(areaTitles[normalizedLine], areaTitleStyle));
+                    formattedContent.push(''); 
+                    currentArea = normalizedLine; 
+                    continue;   
                 }
 
                 // 2. Títulos de Seção (ex: JORNAIS, PORTAIS)
                 if (sectionTitles.includes(normalizedLine)) {
-                    // Adiciona uma linha em branco ANTES do título da seção,
-                    // mas apenas se a linha anterior não for vazia
                     if (formattedContent.length > 0 && formattedContent[formattedContent.length - 1] !== '') {
-                         formattedContent.push('');
+                           formattedContent.push('');
                     }
-                    formattedContent.push(applyFormat(normalizedLine, sectionTitleStyle));
-                    formattedContent.push(''); // Linha em branco após o título da seção
+                    formattedContent.push(applyWhatsAppFormat(normalizedLine, sectionTitleStyle));
+                    formattedContent.push(''); 
                     continue;
                 }
 
@@ -459,7 +619,7 @@ Clipping direcionado exclusivamente para servidores, sendo proibida a divulgaç�
                 }
 
                 if (isPublicationName) {
-                    formattedContent.push(applyFormat(line, publicationNameStyle));
+                    formattedContent.push(applyWhatsAppFormat(line, publicationNameStyle));
                     continue;
                 }
 
@@ -479,14 +639,11 @@ Clipping direcionado exclusivamente para servidores, sendo proibida a divulgaç�
                     }
                     formattedContent.push(processedLine);
 
-                    // Lógica de espaçamento após links/matérias para separar blocos de veículos (fora de CAPAS)
                     if (i + 1 < inputContentWithoutFooter.length) {
                         const nextLineTrimmed = inputContentWithoutFooter[i + 1].trim();
-                        // Verifica se a próxima linha é um nome de publicação E não estamos na área CAPAS
                         if (publicationPrefixes.some(prefix => nextLineTrimmed.startsWith(prefix)) && currentArea !== 'CAPAS') {
-                            // Se a linha anterior (o link que acabamos de adicionar) não foi já seguida por um espaço (ex: era a última de uma lista compacta)
-                            if (formattedContent[formattedContent.length -1].trim() !== '') { // Verifica se a última adição não foi um espaço vazio
-                                formattedContent.push(''); // Adiciona uma linha em branco para separar o próximo veículo
+                            if (formattedContent[formattedContent.length -1].trim() !== '') { 
+                                formattedContent.push(''); 
                             }
                         }
                     }
@@ -495,16 +652,170 @@ Clipping direcionado exclusivamente para servidores, sendo proibida a divulgaç�
 
                 // Títulos das matérias (se a linha não foi processada acima e não está vazia)
                 if (line.length > 0) {
-                    formattedContent.push(applyFormat(line, articleTitleStyle));
+                    formattedContent.push(applyWhatsAppFormat(line, articleTitleStyle));
                 }
             }
 
             // Rodapé final
-            formattedContent.push(''); // Linha em branco antes do rodapé
-            formattedContent.push(`*_${footerString}_*`); // Aplica negrito e itálico ao rodapé
+            formattedContent.push(''); 
+            formattedContent.push(`*_${footerString}_*`);
 
-            outputArea.value = formattedContent.join('\n');
+            outputArea.textContent = formattedContent.join('\n');
             loadingMessage.style.display = 'none';
+        }
+
+        // Função para formatar para HTML
+        function formatClippingHTML() {
+            const inputText = document.getElementById('inputClipping').value;
+            const outputArea = document.getElementById('outputClippingHTML');
+            
+            let formattedHtml = '';
+            const lines = inputText.split('\n');
+            let isInsideCapasSection = false;
+
+            const sectionTitles = [
+                "CAPAS",
+                "MATÉRIAS QUE CITAM O SISEMA",
+                "OUTRAS MATÉRIAS RELEVANTES",
+                "JORNAIS",
+                "PORTAIS",
+                "REVISTAS",
+                "YOUTUBE"
+            ];
+
+            const vehicleTitleRegex = /^(Portal|Jornal|Revista|Canal)\s.+/i;
+            const urlRegex = /^(https?:\/\/[^\s]+)$/i;
+
+            // Processar o cabeçalho para HTML
+            const today = new Date();
+            const day = String(today.getDate()).padStart(2, '0');
+            const month = String(today.getMonth() + 1).padStart(2, '0');
+            const year = today.getFullYear();
+            const headerText = `Clipping Meio Ambiente: ${day}.${month}.${year}`;
+            formattedHtml += `<p><strong><u>${headerText}</u></strong></p>\n`; // Exemplo de formatação para HTML
+            formattedHtml += `<p> </p>\n`; // Linha em branco após o cabeçalho
+
+            // Remover o rodapé do input para adicioná-lo no final, formatado
+            const footerString = 'Clipping direcionado exclusivamente para servidores, sendo proibida a divulgação para outras pessoas';
+            const footerIndex = lines.findIndex(line => line.toLowerCase().includes(footerString.toLowerCase()));
+            let inputContentWithoutFooter = lines;
+            if (footerIndex !== -1) {
+                inputContentWithoutFooter = lines.slice(0, footerIndex);
+            }
+
+            for (let i = 0; i < inputContentWithoutFooter.length; i++) {
+                let line = inputContentWithoutFooter[i].trim();
+
+                if (line === '') {
+                    // Adiciona <p> </p> para linhas em branco apenas se a linha anterior não foi um fechamento de <p>
+                    if (formattedHtml.endsWith('</a></p>\n') || formattedHtml.endsWith('</strong></p>\n') || formattedHtml.endsWith('</span></p>\n')) {
+                        formattedHtml += '<p> </p>\n';
+                    }
+                    continue;
+                }
+
+                let isSectionTitle = false;
+                for (const title of sectionTitles) {
+                    if (line.toUpperCase() === title) {
+                        formattedHtml += `<p><span style="text-decoration: underline;"><strong>${line}</strong></span></p>\n`;
+                        formattedHtml += `<p> </p>\n`;
+                        isSectionTitle = true;
+                        isInsideCapasSection = (line.toUpperCase() === "CAPAS");
+                        break;
+                    }
+                }
+                if (isSectionTitle) {
+                    continue;
+                }
+
+                if (isInsideCapasSection) {
+                    if (!urlRegex.test(line) && (i + 1 < lines.length) && urlRegex.test(lines[i + 1].trim())) {
+                        const vehicleName = line;
+                        const urlCapa = lines[i + 1].trim();
+                        formattedHtml += `<p><a href="${urlCapa}">${vehicleName}</a></p>\n`;
+                        i++; // Pula a próxima linha que é a URL
+                        
+                        // Adiciona espaço após o link da capa se a próxima linha não for vazia ou título de seção
+                        if (i + 1 < lines.length) {
+                            const nextNextLine = lines[i + 1].trim();
+                            if (nextNextLine === '' || sectionTitles.some(title => nextNextLine.toUpperCase() === title)) {
+                                formattedHtml += `<p> </p>\n`;
+                            }
+                        } else {
+                            formattedHtml += `<p> </p>\n`; // Adiciona no final da seção de capas
+                        }
+                        continue;
+                    }
+                    formattedHtml += `<p>${line}</p>\n`; // Se não é um par nome/URL de capa
+                    continue;
+                }
+
+                if (vehicleTitleRegex.test(line)) {
+                    formattedHtml += `<p><strong>${line}</strong></p>\n`;
+                    continue;
+                }
+
+                if (!urlRegex.test(line) && (i + 1 < lines.length) && urlRegex.test(lines[i + 1].trim())) {
+                    const title = line;
+                    const url = lines[i + 1].trim();
+                    formattedHtml += `<p><a href="${url}">${title}</a></p>\n`;
+                    i++; // Pula a próxima linha que é a URL
+
+                    // Adiciona espaço após o link da matéria se a próxima linha for um título de veículo ou seção
+                    if (i + 1 < lines.length) {
+                        const nextNextLine = lines[i + 1].trim();
+                        if (nextNextLine === '' || vehicleTitleRegex.test(nextNextLine) || sectionTitles.some(title => nextNextLine.toUpperCase() === title)) {
+                            formattedHtml += `<p> </p>\n`;
+                        }
+                    } else {
+                        formattedHtml += `<p> </p>\n`; // Adiciona no final do documento
+                    }
+                    continue;
+                }
+
+                // Linhas que não se encaixam nas regras acima (pode ser o título do clipping se não for o primeiro)
+                if (line !== '') {
+                    formattedHtml += `<p>${line}</p>\n`;
+                }
+            }
+
+            // Rodapé final para HTML
+            formattedHtml += `<p><em><strong>${footerString}</strong></em></p>\n`;
+
+            outputArea.textContent = formattedHtml.trim(); // Exibe o HTML puro
+        }
+
+        function copyToClipboard(elementId) {
+            const outputElement = document.getElementById(elementId);
+            const textToCopy = outputElement.textContent; // Pega o texto visível na div de saída
+
+            // Para copiar o conteúdo HTML com as tags, pegamos o innerHTML da div de saída
+            // e o colocamos em uma textarea temporária para cópia.
+            if (elementId === 'outputClippingHTML') {
+                const tempTextArea = document.createElement('textarea');
+                tempTextArea.value = textToCopy;
+                document.body.appendChild(tempTextArea);
+
+                tempTextArea.select();
+                tempTextArea.setSelectionRange(0, 99999); /* Para dispositivos móveis */
+
+                try {
+                    document.execCommand('copy');
+                    alert('Conteúdo HTML copiado para a área de transferência!');
+                } catch (err) {
+                    console.error('Erro ao copiar HTML: ', err);
+                    alert('Erro ao copiar o conteúdo HTML. Por favor, selecione e copie manualmente.');
+                } finally {
+                    document.body.removeChild(tempTextArea);
+                }
+            } else { // Para o WhatsApp, copia o texto puro
+                navigator.clipboard.writeText(textToCopy).then(() => {
+                    alert('Conteúdo para WhatsApp copiado para a área de transferência!');
+                }).catch(err => {
+                    console.error('Erro ao copiar: ', err);
+                    alert('Erro ao copiar o conteúdo.');
+                });
+            }
         }
     </script>
 </body>
