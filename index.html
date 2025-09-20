@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -513,21 +514,30 @@ https://www.youtube.com/watch?v=ExemploVideo"></textarea>
         }
 
         // Função para encurtar URL
-        async function shortenUrl(longUrl) {
-            // Tenta usar TinyURL
-            try {
-                const tinyUrlApi = `https://tinyurl.com/api-create.php?url=${encodeURIComponent(longUrl)}`;
-                const tinyResponse = await fetch(tinyUrlApi);
-                if (!tinyResponse.ok) {
-                    throw new Error(`HTTP error TinyURL! status: ${tinyResponse.status}`);
-                }
-                const shortUrl = await tinyResponse.text();
-                return shortUrl;
-            } catch (tinyError) {
-                console.error("Erro ao encurtar URL com TinyURL:", tinyError);
-                return longUrl; // Retorna a URL original se TinyURL falhar
-            }
+// VERSÃO FINAL com proxy para contornar bloqueios de segurança do navegador (CORS)
+async function shortenUrl(longUrl) {
+    // A API do is.gd que queremos chamar
+    const targetApiUrl = `https://is.gd/create.php?format=simple&url=${encodeURIComponent(longUrl)}`;
+
+    // Usamos um "proxy" como ponte para fazer a requisição de forma segura
+    const proxyUrl = `https://corsproxy.io/?${targetApiUrl}`;
+
+    try {
+        const response = await fetch(proxyUrl);
+        if (!response.ok) {
+            throw new Error(`Erro de rede! Status: ${response.status}`);
         }
+        const shortUrl = await response.text();
+        if (shortUrl.startsWith('Error:')) {
+            throw new Error(shortUrl);
+        }
+        return shortUrl;
+    } catch (error) {
+        console.error("Falha no encurtamento via proxy:", error);
+        alert("Não foi possível encurtar o link. A URL original será usada. Verifique sua conexão de internet ou se há um antivírus/firewall bloqueando o acesso.");
+        return longUrl;
+    }
+}
 
         // Função para formatar para WhatsApp
         async function formatClippingWhatsApp() {
