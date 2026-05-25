@@ -520,7 +520,7 @@ async function shortenUrl(longUrl) {
     const targetApiUrl = `https://is.gd/create.php?format=simple&url=${encodeURIComponent(longUrl)}`;
 
     // Usamos um "proxy" como ponte para fazer a requisição de forma segura
-    const proxyUrl = `https://corsproxy.io/?${targetApiUrl}`;
+    const proxyUrl = `https://api.allorigins.win/raw?url=${encodeURIComponent(targetApiUrl)}`;
 
     try {
         const response = await fetch(proxyUrl);
