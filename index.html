@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -10,7 +9,7 @@
         body {
             font-family: Arial, sans-serif;
             margin: 20px;
-            background-color: #f0fff0; /* Branco acinzentado (tom de verde suave) */
+            background-color: #f0fff0;
             color: #333;
             line-height: 1.6;
         }
@@ -23,24 +22,24 @@
             box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
         }
         h1 {
-            color: #2e8b57; /* Verde mar */
+            color: #2e8b57;
             text-align: center;
             margin-bottom: 30px;
             font-size: 2.2em;
         }
         h2 {
-            color: #3cb371; /* Verde médio */
+            color: #3cb371;
             margin-top: 25px;
             margin-bottom: 15px;
-            border-bottom: 2px solid #8fbc8f; /* Verde musgo claro */
+            border-bottom: 2px solid #8fbc8f;
             padding-bottom: 8px;
         }
         .controls {
-            background-color: #e0eee0; /* Verde claro */
+            background-color: #e0eee0;
             padding: 25px;
             border-radius: 10px;
             margin-bottom: 30px;
-            border: 1px solid #8fbc8f; /* Verde musgo claro */
+            border: 1px solid #8fbc8f;
         }
         .control-group {
             margin-bottom: 15px;
@@ -50,7 +49,7 @@
         }
         .control-group label {
             font-weight: bold;
-            color: #2e8b57; /* Verde mar */
+            color: #2e8b57;
             margin-right: 18px;
             min-width: 190px;
             font-size: 1.05rem;
@@ -58,16 +57,16 @@
         .control-group select {
             padding: 10px;
             border-radius: 6px;
-            border: 1px solid #a9d18e; /* Verde oliva claro */
+            border: 1px solid #a9d18e;
             font-size: 1rem;
             flex-grow: 1;
-            max-width: calc(100% - 210px); /* Ajuste para responsividade */
+            max-width: calc(100% - 210px);
         }
         textarea {
             width: 100%;
             padding: 18px;
             margin-bottom: 25px;
-            border: 1px solid #8fbc8f; /* Verde musgo claro */
+            border: 1px solid #8fbc8f;
             border-radius: 8px;
             font-size: 16px;
             box-sizing: border-box;
@@ -77,11 +76,11 @@
         .button-group {
             display: flex;
             justify-content: space-around;
-            gap: 25px; /* Espaço entre os botões */
+            gap: 25px;
             margin-bottom: 35px;
         }
         button {
-            background-color: #3cb371; /* Verde médio */
+            background-color: #3cb371;
             color: white;
             padding: 14px 30px;
             border: none;
@@ -89,18 +88,18 @@
             cursor: pointer;
             font-size: 1.15rem;
             transition: background-color 0.3s ease, transform 0.2s ease;
-            flex: 1; /* Para que os botões ocupem o mesmo espaço */
-            max-width: 48%; /* Para garantir que não se estendam demais em telas grandes */
+            flex: 1;
+            max-width: 48%;
         }
         button:hover {
-            background-color: #2e8b57; /* Verde mar (mais escuro) */
+            background-color: #2e8b57;
             transform: translateY(-2px);
         }
         .output-section {
             margin-top: 40px;
             padding: 25px;
-            background-color: #f5f5dc; /* Bege claro (tom de verde suave) */
-            border: 1px dashed #8fbc8f; /* Verde musgo claro */
+            background-color: #f5f5dc;
+            border: 1px dashed #8fbc8f;
             border-radius: 10px;
             min-height: 150px;
             position: relative;
@@ -109,26 +108,26 @@
             font-weight: bold;
             display: block;
             margin-bottom: 12px;
-            color: #2e8b57; /* Verde mar */
+            color: #2e8b57;
             font-size: 1.2em;
         }
         .output-text {
-            white-space: pre-wrap; /* Preserves whitespace and wraps lines */
-            word-break: break-all; /* Ensures long words/URLs break to fit */
-            overflow-x: auto; /* Adds horizontal scroll if content is too wide */
+            white-space: pre-wrap;
+            word-break: break-all;
+            overflow-x: auto;
             background-color: #ffffff;
             padding: 12px;
-            border: 1px solid #a9d18e; /* Verde oliva claro */
+            border: 1px solid #a9d18e;
             border-radius: 6px;
-            max-height: 350px; /* Altura máxima para rolagem */
-            overflow-y: auto; /* Adiciona rolagem vertical se o conteúdo for muito longo */
+            max-height: 350px;
+            overflow-y: auto;
         }
         .copy-button {
-            background-color: #2e8b57; /* Verde mar */
+            background-color: #2e8b57;
             margin-top: 20px;
             width: auto;
             padding: 12px 22px;
-            display: inline-block; /* Para não ocupar a largura total */
+            display: inline-block;
             border-radius: 6px;
             color: white;
             border: none;
@@ -137,19 +136,18 @@
             transition: background-color 0.3s ease, transform 0.2s ease;
         }
         .copy-button:hover {
-            background-color: #3cb371; /* Verde médio (mais claro ao hover) */
+            background-color: #3cb371;
             transform: translateY(-1px);
         }
         .loading {
             text-align: center;
             margin-top: 25px;
             font-style: italic;
-            color: #556b2f; /* Verde oliva escuro */
+            color: #556b2f;
             display: none;
             font-size: 0.95em;
         }
 
-        /* Responsividade melhorada */
         @media (max-width: 768px) {
             .container {
                 padding: 20px;
@@ -227,7 +225,6 @@
             }
         }
 
-        /* Para telas ainda menores (smartphones pequenos) */
         @media (max-width: 480px) {
             h1 {
                 font-size: 1.8em;
@@ -265,7 +262,7 @@
                     <option value="strikethrough">Riscado (~texto~)</option>
                     <option value="monospace">Monoespaçado (```texto```)</option>
                     <option value="gothic">Gótico (𝔉𝔬𝔫𝔱𝔢 𝔲𝔫𝔦𝔠𝔬𝔡𝔢)</option>
-                    <option value="cursive">Cursiva (𝓕𝓸𝓷𝓽𝓮 𝓾𝓷𝓲𝓬𝓸𝓭𝓮)</option>
+                    <option value="cursive">Cursiva (𝓕𝓸𝓷𝓽𝓮 𝓾𝓃𝒾𝒸𝓸𝒹𝑒)</option>
                     <option value="doubledunderline">Duplo Sublinhado (𝒰𝓃𝒹𝑒𝓇𝓁𝒾𝓃𝑒)</option>
                     <option value="circled">Circulados (Ⓒⓘⓡⓒⓛⓔⓓ)</option>
                     <option value="boxed">Quadrados Negritos (🅑🅞🅧🅔🅓)</option>
@@ -380,7 +377,7 @@ https://www.youtube.com/watch?v=ExemploVideo"></textarea>
             <button onclick="formatClippingHTML()">Formatar para HTML</button>
         </div>
 
-        <div class="loading" id="loadingMessage">Encurtando links para WhatsApp, aguarde um momento...</div>
+        <div class="loading" id="loadingMessage">Encurtando links via CleanURI, aguarde um momento...</div>
 
         <div class="output-section">
             <label>Conteúdo formatado para WhatsApp (pronto para copiar):</label>
@@ -397,7 +394,6 @@ https://www.youtube.com/watch?v=ExemploVideo"></textarea>
     </div>
 
     <script>
-        // Funções para converter texto para estilos Unicode
         function toGothic(text) {
             const map = {
                 'A': '𝔄', 'B': '𝔅', 'C': 'ℭ', 'D': '𝔇', 'E': '𝔈', 'F': '𝔉', 'G': '𝔊', 'H': 'ℌ', 'I': 'ℑ', 'J': '𝔍', 'K': '𝔎', 'L': '𝔏', 'M': '𝔐', 'N': '𝔑', 'O': '𝔒', 'P': '𝔓', 'Q': '𝔔', 'R': 'ℜ', 'S': '𝔖', 'T': '𝔗', 'U': '𝔘', 'V': '𝔙', 'W': '𝔚', 'X': '𝔛', 'Y': '𝔜', 'Z': 'ℨ',
@@ -410,7 +406,7 @@ https://www.youtube.com/watch?v=ExemploVideo"></textarea>
         function toCursive(text) {
             const map = {
                 'A': '𝒜', 'B': '𝐵', 'C': '𝒞', 'D': '𝒟', 'E': '𝐸', 'F': '𝐹', 'G': '𝒢', 'H': '𝐻', 'I': '𝐼', 'J': '𝒥', 'K': '𝒦', 'L': '𝐿', 'M': '𝑀', 'N': '𝒩', 'O': '𝒪', 'P': '𝒫', 'Q': '𝒬', 'R': '𝑅', 'S': '𝒮', 'T': '𝒯', 'U': '𝒰', 'V': '𝒱', 'W': '𝒲', 'X': '𝒳', 'Y': '𝒴', 'Z': '𝒵',
-                'a': '𝒶', 'b': '𝒷', 'c': '𝒸', 'd': '𝒹', 'e': '𝑒', 'f': '𝒻', 'g': '𝑔', 'h': '𝒽', 'i': '𝒾', 'j': '𝒿', 'k': '𝓀', 'l': '𝓁', 'm': '𝓂', 'n': '𝓃', 'o': '𝑜', 'p': '𝓅', 'q': '𝓆', 'r': '𝓇', 's': '𝓈', 't': '𝓉', 'u': '𝓊', 'v': '𝓋', 'w': '𝓌', 'x': '𝓍', 'y': '𝓎', 'z': '𝓏',
+                'a': '𝒶', 'b': '𝒷', 'c': '𝒸', 'd': '𝒹', 'e': '𝑒', 'f': '𝒻', 'g': '𝑔', 'h': '𝒽', 'i': '𝒾', 'j': '𝿿', 'k': '𝓀', 'l': '𝓁', 'm': '𝓂', 'n': '𝓃', 'o': '𝑜', 'p': '𝓅', 'q': '𝓆', 'r': '𝓇', 's': '𝓈', 't': '𝓉', 'u': '𝓊', 'v': '𝓋', 'w': '𝓌', 'x': '𝓍', 'y': '𝓎', 'z': '𝓏',
                 '0': '𝟶', '1': '𝟷', '2': '𝟸', '3': '𝟹', '4': '𝟺', '5': '𝟻', '6': '𝟼', '7': '𝟽', '8': '𝟾', '9': '𝟿'
             };
             return text.split('').map(char => map[char] || char).join('');
@@ -479,7 +475,6 @@ https://www.youtube.com/watch?v=ExemploVideo"></textarea>
             return text.split('').map(char => map[char] || char).join('');
         }
 
-        // Função para aplicar formatação de texto para WhatsApp
         function applyWhatsAppFormat(text, style) {
             switch (style) {
                 case 'bold':
@@ -513,52 +508,54 @@ https://www.youtube.com/watch?v=ExemploVideo"></textarea>
             }
         }
 
-        // Função para encurtar URL
-// VERSÃO FINAL com proxy para contornar bloqueios de segurança do navegador (CORS)
-async function shortenUrl(longUrl) {
-    // A API do is.gd que queremos chamar
-    const targetApiUrl = `https://is.gd/create.php?format=simple&url=${encodeURIComponent(longUrl)}`;
+        // Função para encurtar URL via CleanURI
+        async function shortenUrl(longUrl) {
+            const cleanUriApi = 'https://cleanuri.com/api/v1/shorten';
+            const proxyUrl = `https://corsproxy.io/?url=${encodeURIComponent(cleanUriApi)}`;
 
-    // Usamos um "proxy" como ponte para fazer a requisição de forma segura
-    const proxyUrl = `https://api.allorigins.win/raw?url=${encodeURIComponent(targetApiUrl)}`;
+            try {
+                const response = await fetch(proxyUrl, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/x-www-form-urlencoded'
+                    },
+                    body: `url=${encodeURIComponent(longUrl.trim())}`
+                });
 
-    try {
-        const response = await fetch(proxyUrl);
-        if (!response.ok) {
-            throw new Error(`Erro de rede! Status: ${response.status}`);
+                if (!response.ok) {
+                    throw new Error(`Status: ${response.status}`);
+                }
+
+                const data = await response.json();
+                if (data.result_url) {
+                    return data.result_url;
+                } else if (data.error) {
+                    throw new Error(data.error);
+                }
+                return longUrl;
+            } catch (error) {
+                console.error("Falha no encurtamento CleanURI:", error);
+                return longUrl;
+            }
         }
-        const shortUrl = await response.text();
-        if (shortUrl.startsWith('Error:')) {
-            throw new Error(shortUrl);
-        }
-        return shortUrl;
-    } catch (error) {
-        console.error("Falha no encurtamento via proxy:", error);
-        alert("Não foi possível encurtar o link. A URL original será usada. Verifique sua conexão de internet ou se há um antivírus/firewall bloqueando o acesso.");
-        return longUrl;
-    }
-}
 
-        // Função para formatar para WhatsApp
         async function formatClippingWhatsApp() {
             const input = document.getElementById('inputClipping').value;
             const outputArea = document.getElementById('outputClippingWhatsApp');
             const loadingMessage = document.getElementById('loadingMessage');
 
-            // Obter estilos selecionados
             const headerStyle = document.getElementById('headerStyle').value;
             const areaTitleStyle = document.getElementById('areaTitleStyle').value;
             const sectionTitleStyle = document.getElementById('sectionTitleStyle').value;
             const publicationNameStyle = document.getElementById('publicationNameStyle').value;
             const articleTitleStyle = document.getElementById('articleTitleStyle').value;
 
-            outputArea.textContent = ''; // Limpa a área de saída
+            outputArea.textContent = '';
             loadingMessage.style.display = 'block';
 
             let lines = input.split('\n').map(line => line.trim()).filter(line => line.length > 0);
             let formattedContent = [];
             
-            // Definir os títulos de área para reconhecimento e seus emojis
             const areaTitles = {
                 'CAPAS': '📰 CAPAS',
                 'MATÉRIAS QUE CITAM O SISEMA': '📢 MATÉRIAS QUE CITAM O SISEMA',
@@ -569,16 +566,14 @@ async function shortenUrl(longUrl) {
 
             let currentArea = ''; 
 
-            // Processar o cabeçalho
             const today = new Date();
             const day = String(today.getDate()).padStart(2, '0');
             const month = String(today.getMonth() + 1).padStart(2, '0');
             const year = today.getFullYear();
             const headerText = `Clipping Meio Ambiente: ${day}.${month}.${year}`;
             formattedContent.push(applyWhatsAppFormat(headerText, headerStyle));
-            formattedContent.push(''); // Linha em branco após o cabeçalho
+            formattedContent.push('');
 
-            // Remover o rodapé do input para adicioná-lo no final, formatado
             const footerString = 'Clipping direcionado exclusivamente para servidores, sendo proibida a divulgação para outras pessoas';
             const footerIndex = lines.findIndex(line => line.toLowerCase().includes(footerString.toLowerCase()));
             let inputContentWithoutFooter = lines;
@@ -595,7 +590,6 @@ async function shortenUrl(longUrl) {
 
                 const normalizedLine = line.toUpperCase();
 
-                // 1. Títulos de Área (ex: CAPAS, MATÉRIAS QUE CITAM O SISEMA)
                 if (areaTitles[normalizedLine]) {
                     if (formattedContent.length > 1 && formattedContent[formattedContent.length - 1] !== '') {
                         formattedContent.push('');
@@ -606,17 +600,15 @@ async function shortenUrl(longUrl) {
                     continue;   
                 }
 
-                // 2. Títulos de Seção (ex: JORNAIS, PORTAIS)
                 if (sectionTitles.includes(normalizedLine)) {
                     if (formattedContent.length > 0 && formattedContent[formattedContent.length - 1] !== '') {
-                           formattedContent.push('');
+                        formattedContent.push('');
                     }
                     formattedContent.push(applyWhatsAppFormat(normalizedLine, sectionTitleStyle));
                     formattedContent.push(''); 
                     continue;
                 }
 
-                // 3. Nomes de Publicações (Jornal X, Portal Y)
                 let isPublicationName = false;
                 for (const prefix of publicationPrefixes) {
                     if (line.startsWith(prefix)) {
@@ -630,7 +622,6 @@ async function shortenUrl(longUrl) {
                     continue;
                 }
 
-                // 4. Links e Títulos de Matérias
                 const urlRegex = /(https?:\/\/[^\s]+)/g;
                 let match;
                 let linksToShorten = [];
@@ -649,7 +640,7 @@ async function shortenUrl(longUrl) {
                     if (i + 1 < inputContentWithoutFooter.length) {
                         const nextLineTrimmed = inputContentWithoutFooter[i + 1].trim();
                         if (publicationPrefixes.some(prefix => nextLineTrimmed.startsWith(prefix)) && currentArea !== 'CAPAS') {
-                            if (formattedContent[formattedContent.length -1].trim() !== '') { 
+                            if (formattedContent[formattedContent.length - 1].trim() !== '') { 
                                 formattedContent.push(''); 
                             }
                         }
@@ -657,13 +648,11 @@ async function shortenUrl(longUrl) {
                     continue;
                 }
 
-                // Títulos das matérias (se a linha não foi processada acima e não está vazia)
                 if (line.length > 0) {
                     formattedContent.push(applyWhatsAppFormat(line, articleTitleStyle));
                 }
             }
 
-            // Rodapé final
             formattedContent.push(''); 
             formattedContent.push(`*_${footerString}_*`);
 
@@ -671,7 +660,6 @@ async function shortenUrl(longUrl) {
             loadingMessage.style.display = 'none';
         }
 
-        // Função para formatar para HTML
         function formatClippingHTML() {
             const inputText = document.getElementById('inputClipping').value;
             const outputArea = document.getElementById('outputClippingHTML');
@@ -693,16 +681,14 @@ async function shortenUrl(longUrl) {
             const vehicleTitleRegex = /^(Portal|Jornal|Revista|Canal)\s.+/i;
             const urlRegex = /^(https?:\/\/[^\s]+)$/i;
 
-            // Processar o cabeçalho para HTML
             const today = new Date();
             const day = String(today.getDate()).padStart(2, '0');
             const month = String(today.getMonth() + 1).padStart(2, '0');
             const year = today.getFullYear();
             const headerText = `Clipping Meio Ambiente: ${day}.${month}.${year}`;
-            formattedHtml += `<p><strong><u>${headerText}</u></strong></p>\n`; // Exemplo de formatação para HTML
-            formattedHtml += `<p> </p>\n`; // Linha em branco após o cabeçalho
+            formattedHtml += `<p><strong><u>${headerText}</u></strong></p>\n`;
+            formattedHtml += `<p> </p>\n`;
 
-            // Remover o rodapé do input para adicioná-lo no final, formatado
             const footerString = 'Clipping direcionado exclusivamente para servidores, sendo proibida a divulgação para outras pessoas';
             const footerIndex = lines.findIndex(line => line.toLowerCase().includes(footerString.toLowerCase()));
             let inputContentWithoutFooter = lines;
@@ -714,7 +700,6 @@ async function shortenUrl(longUrl) {
                 let line = inputContentWithoutFooter[i].trim();
 
                 if (line === '') {
-                    // Adiciona <p> </p> para linhas em branco apenas se a linha anterior não foi um fechamento de <p>
                     if (formattedHtml.endsWith('</a></p>\n') || formattedHtml.endsWith('</strong></p>\n') || formattedHtml.endsWith('</span></p>\n')) {
                         formattedHtml += '<p> </p>\n';
                     }
@@ -740,20 +725,19 @@ async function shortenUrl(longUrl) {
                         const vehicleName = line;
                         const urlCapa = lines[i + 1].trim();
                         formattedHtml += `<p><a href="${urlCapa}">${vehicleName}</a></p>\n`;
-                        i++; // Pula a próxima linha que é a URL
+                        i++;
                         
-                        // Adiciona espaço após o link da capa se a próxima linha não for vazia ou título de seção
                         if (i + 1 < lines.length) {
                             const nextNextLine = lines[i + 1].trim();
                             if (nextNextLine === '' || sectionTitles.some(title => nextNextLine.toUpperCase() === title)) {
                                 formattedHtml += `<p> </p>\n`;
                             }
                         } else {
-                            formattedHtml += `<p> </p>\n`; // Adiciona no final da seção de capas
+                            formattedHtml += `<p> </p>\n`;
                         }
                         continue;
                     }
-                    formattedHtml += `<p>${line}</p>\n`; // Se não é um par nome/URL de capa
+                    formattedHtml += `<p>${line}</p>\n`;
                     continue;
                 }
 
@@ -766,45 +750,39 @@ async function shortenUrl(longUrl) {
                     const title = line;
                     const url = lines[i + 1].trim();
                     formattedHtml += `<p><a href="${url}">${title}</a></p>\n`;
-                    i++; // Pula a próxima linha que é a URL
+                    i++;
 
-                    // Adiciona espaço após o link da matéria se a próxima linha for um título de veículo ou seção
                     if (i + 1 < lines.length) {
                         const nextNextLine = lines[i + 1].trim();
                         if (nextNextLine === '' || vehicleTitleRegex.test(nextNextLine) || sectionTitles.some(title => nextNextLine.toUpperCase() === title)) {
                             formattedHtml += `<p> </p>\n`;
                         }
                     } else {
-                        formattedHtml += `<p> </p>\n`; // Adiciona no final do documento
+                        formattedHtml += `<p> </p>\n`;
                     }
                     continue;
                 }
 
-                // Linhas que não se encaixam nas regras acima (pode ser o título do clipping se não for o primeiro)
                 if (line !== '') {
                     formattedHtml += `<p>${line}</p>\n`;
                 }
             }
 
-            // Rodapé final para HTML
             formattedHtml += `<p><em><strong>${footerString}</strong></em></p>\n`;
 
-            outputArea.textContent = formattedHtml.trim(); // Exibe o HTML puro
+            outputArea.textContent = formattedHtml.trim();
         }
 
         function copyToClipboard(elementId) {
             const outputElement = document.getElementById(elementId);
-            const textToCopy = outputElement.textContent; // Pega o texto visível na div de saída
+            const textToCopy = outputElement.textContent;
 
-            // Para copiar o conteúdo HTML com as tags, pegamos o innerHTML da div de saída
-            // e o colocamos em uma textarea temporária para cópia.
             if (elementId === 'outputClippingHTML') {
                 const tempTextArea = document.createElement('textarea');
                 tempTextArea.value = textToCopy;
                 document.body.appendChild(tempTextArea);
-
                 tempTextArea.select();
-                tempTextArea.setSelectionRange(0, 99999); /* Para dispositivos móveis */
+                tempTextArea.setSelectionRange(0, 99999);
 
                 try {
                     document.execCommand('copy');
@@ -815,7 +793,7 @@ async function shortenUrl(longUrl) {
                 } finally {
                     document.body.removeChild(tempTextArea);
                 }
-            } else { // Para o WhatsApp, copia o texto puro
+            } else {
                 navigator.clipboard.writeText(textToCopy).then(() => {
                     alert('Conteúdo para WhatsApp copiado para a área de transferência!');
                 }).catch(err => {
